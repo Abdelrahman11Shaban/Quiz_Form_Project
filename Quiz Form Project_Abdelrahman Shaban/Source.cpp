@@ -22,6 +22,8 @@ private:
 public:
 
 	// A Function to set values of any variable.
+	
+	//If you get  this error  (error: extra qualification ‘Question::’ on member ‘SetValues’ [-fpermissive]) remove "Question::"
 
 	void Question::SetValues(string q, string a1, string a2, string a3, string a4, char ca, int pa)
 	{
@@ -36,7 +38,9 @@ public:
 
 
 	//A Function to print the varibles.
-
+	
+       //If you get  this error  (error: extra qualification ‘Question::’ on member ‘AskQuestion’ [-fpermissive]) remove "Question::"
+	
 	void Question::AskQuestion()
 	{
 
@@ -49,8 +53,25 @@ public:
 		cout << "d. " << Answer_4 << endl;
 		cout << endl;
 
-		cout << "What is your answer?" << endl;
-		cin >> Guess;
+		while (1) 
+		{
+			cout << "What is your answer?" << endl;
+			cin >> Guess;
+
+			if ((Guess == 'a') || (Guess == 'b') || (Guess == 'c') || (Guess == 'd') )
+			{
+				break;
+			}//endif
+
+			else 
+			{
+				cout << "Please enter one of those answers (a or b or c or d)" << endl;
+				cout << "                                                    " << endl;
+				continue;
+
+			}//end else
+			 
+		}//end while
 		
 
 		if (Guess == Correct_Answer)
